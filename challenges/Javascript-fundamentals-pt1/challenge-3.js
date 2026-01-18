@@ -25,14 +25,14 @@ Test data:
 
 */
 
-let scoreDolphins = 96 + 108 + 98 / 3;
-let scoreKoalas = 88 + 91 + 110 / 3;
+let scoreDolphins = (96 + 108 + 89) / 3;
+let scoreKoalas = (88 + 91 + 110) / 3;
 
-scoreDolphins = 97 + 112 + 101 / 3;
-scoreKoalas = 109 + 95 + 123 / 3;
+// scoreDolphins = (97 + 112 + 101) / 3;
+// scoreKoalas = (109 + 95 + 123) / 3;
 
-scoreDolphins = 30 + 30 + 30 / 3;
-scoreKoalas = 30 + 30 + 30 / 3;
+// scoreDolphins = (30 + 30 + 30) / 3;
+// scoreKoalas = (30 + 30 + 30) / 3;
 
 if (scoreDolphins > scoreKoalas && scoreDolphins > 100) {
   console.log('Dolphins Wins!');
