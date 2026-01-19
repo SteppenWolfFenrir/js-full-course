@@ -17,7 +17,7 @@ function percentageOfWorld1(populations) {
 
 }
 
-const percentages1 = populations.map(percentageOfWorld1);
+const percentages1 = populations.map(percentageOfWorld1); // Вызывает функцию для каждого элемента массива
 
 const percentages2 = []
 for (let i = 0; i < populations.length; i++) {
