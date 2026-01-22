@@ -1,0 +1,14 @@
+/*
+
+Implement a game rest functionality, so that the player can make a new guess!
+  Your tasks:
+  1. 2. 3. 4. Select the element with the 'again' class and attach a click event handler
+In the handler function, restore initial values of the 'score' and
+'secretNumber' variables
+Restore the initial conditions of the message, number, score and guess input
+fields
+Also restore the original background color (#222) and number width (15rem)
+
+*/
+
+// Completed in script.js
