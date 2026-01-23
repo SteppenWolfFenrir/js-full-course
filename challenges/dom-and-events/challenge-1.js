@@ -11,4 +11,4 @@ Also restore the original background color (#222) and number width (15rem)
 
 */
 
-// Completed in script.js
+// Completed in  'guess-my-number'
