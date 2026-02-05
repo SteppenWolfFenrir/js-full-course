@@ -3,6 +3,18 @@
 // Data needed for a later exercise
 const flights = '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12, close: 23
+  }, [weekdays[4]]: {
+    open: 11, close: 23
+  }, [weekdays[5]]: {
+    open: 0, close: 24
+  }
+};
+
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -22,29 +34,101 @@ const restaurant = {
     }
   },
 
-  order: function(starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-
-  orderDelivery: function({
-                            starterIndex = 1,
-                            mainIndex = 0,
-                            time = '20:00',
-                            address
-                          }) {
+  orderDelivery({
+                  starterIndex = 1, mainIndex = 0, time = '20:00', address
+                }) {
     console.log(`Order received: "${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]}" will be delivered to ${address} at ${time}.`);
   },
 
-  orderPasta: function(ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(`Here is your delicious Pasta with ${ing1}, ${ing2} and ${ing3}`);
   },
 
-  orderPizza: function(mainIngredient, ...otherIngredients) {
+  orderPizza(mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
   }
 };
+
+/// Property NAMES
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+
+for (const day of properties) {
+  openStr += `${day}, `;
+  console.log(openStr);
+}
+
+/// Property VALUES
+const values = Object.values(openingHours);
+console.log(values);
+
+/// Entire object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key}, we are open at ${open} and close at ${close}`);
+}
+
+/// Optional Chaining
+/*console.log(restaurant.openingHours.thu?.open);
+console.log(restaurant.openingHours?.thu?.open);*/
+
+/*const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  const close = restaurant.openingHours[day]?.close;
+  console.log(`On day ${day}, we open at ${open}`);
+}
+
+/// Methods
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+/// Arrays
+const users = [{
+  name: 'Valentin', email: 'valentin.io'
+}];
+
+console.log(users[0]?.name ?? 'User does not exist');*/
+
+/*const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (const item of menu) {
+  console.log(item);
+}
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+console.log([...menu.entries()]);*/
+
+/*const rest1 = {
+  name: 'Capri',
+  numGuests: 0
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi'
+};
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+rest1.numGuests ||= 10;
+rest2.numGuests ||= 10;
+
+console.log(rest1.numGuests);
+console.log(rest2.numGuests);*/
 
 /*restaurant.numGuests = 0;
 const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
@@ -54,8 +138,7 @@ console.log(guests1);*/
 /*const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);*/
 
-/// Usa ANY data type, return ANY data type, short-circuiting
-
+/// Use ANY data type, return ANY data type, short-circuiting
 /*console.log('--- OR ---');
 console.log(3 || 'Valentin');
 console.log('' || 'Valentin');
